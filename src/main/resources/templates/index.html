@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数据字典导出</title>
+    <!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+</head>
+<body>
+<div class="form" style="text-align: left">
+    <form id="connFrom" action="#" method="post" th:action="@{/database/dict/export}">
+        <div style="margin-left: 300px">
+            <label>
+                账&emsp;号：&emsp;&emsp;
+                <input style="width: 400px" type="text" name="username"/>
+            </label>
+            <br/>
+            <label>
+                密&emsp;码：&emsp;&emsp;
+                <input style="width: 400px" type="password" name="password"/>
+            </label>
+            <br/>
+            <label>
+                连接串：&emsp;&emsp;
+                <input style="width: 400px" type="text" name="url"/>
+            </label>
+            <br/>
+            <label>
+                数据库名称：
+                <input style="width: 400px" type="text" name="dbname"/>
+            </label>
+            <br/>
+            <label>
+                数据库类型：
+                <select style="width: 410px" name="type">
+                    <option value="MySQL57">MySQL57</option>
+                    <option selected value="MySQL80">MySQL80</option>
+                    <option value="Oracle">Oracle</option>
+                    <option value="SqlServer">SqlServer</option>
+                </select>
+            </label>
+            <br/>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <input type="submit">
+        </div>
+    </form>
+</div>
+
+</body>
+<script>
+    // $.fn.serializeObject = function () {
+    //     const o = {};
+    //     const a = this.serializeArray();
+    //     $.each(a, function () {
+    //         if (o[this.name]) {
+    //             if (!o[this.name].push) {
+    //                 o[this.name] = [o[this.name]];
+    //             }
+    //             o[this.name].push(this.value || '');
+    //         } else {
+    //             o[this.name] = this.value || '';
+    //         }
+    //     });
+    //     return o;
+    // };
+    //
+    // function doRequest() {
+    //     const json = $('#connFrom').serializeObject();
+    //     // console.log(json)
+    //     $.ajax({
+    //         url: '/database/dict/export',
+    //         type: 'POST',
+    //         dataType: 'json',
+    //         contentType: 'application/json;charset=UTF-8',
+    //         data: JSON.stringify(json),
+    //         success: function (result) {
+    //         },
+    //         error: function () {
+    //             alert("异常")
+    //         }
+    //     });
+    // }
+</script>
+</html>

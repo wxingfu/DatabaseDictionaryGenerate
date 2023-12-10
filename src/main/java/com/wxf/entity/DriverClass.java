@@ -11,7 +11,7 @@ public class DriverClass {
     }
 
 
-    public static  String getClazz(Type type) {
+    public static String getClazz(Type type) {
         String driverClass = "";
         switch (type) {
             case MySQL57:

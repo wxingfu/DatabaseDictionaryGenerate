@@ -4,7 +4,12 @@ import com.wxf.dto.ConnInfo;
 import com.wxf.entity.Column;
 import com.wxf.entity.Table;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +27,9 @@ public class DatabaseUtil {
         List<Table> tableList = new ArrayList<>();
         try {
             connection = getConnection(connInfo);
-            //获取表名
+            // 获取表名
             statement = connection.createStatement();
-            String sql = "show full tables from `" + connInfo.getDbname() + "` where Table_type='BASE TABLE'";
+            String sql = String.format("show full tables from `%s` where Table_type='BASE TABLE'", connInfo.getDbname());
             resultSet = statement.executeQuery(sql);
             Table table = null;
             while (resultSet.next()) {
@@ -50,7 +55,7 @@ public class DatabaseUtil {
         List<Column> columns = new ArrayList<>();
         try {
             stm = connection.createStatement();
-            String sql = "show full columns from `" + tableName + "`";
+            String sql = String.format("show full columns from `%s`", tableName);
             rs = stm.executeQuery(sql);
             Column column = null;
             while (rs.next()) {
